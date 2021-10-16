@@ -1,4 +1,4 @@
-package db_test
+package db
 
 //func createRandomUser(t *testing.T) db.User {
 //	hashedPassword, err := util.HashPassword(util.RandomString(6))

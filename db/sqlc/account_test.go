@@ -1,16 +1,15 @@
-package db_test
+package db
 
 import (
 	"context"
 	"github.com/stretchr/testify/require"
-	db "system-simple-bank/db/sqlc"
 	"system-simple-bank/util"
 	"testing"
 	"time"
 )
 
-func createRandomAccount(t *testing.T) db.Account {
-	arg := db.CreateAccountParams{
+func createRandomAccount(t *testing.T) Account {
+	arg := CreateAccountParams{
 		Owner:    util.RandomOwner(),
 		Balance:  util.RandomMoney(),
 		Currency: util.RandomCurrency(),
