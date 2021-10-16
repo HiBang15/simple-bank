@@ -1,4 +1,4 @@
-name: ci-test
+name: Go
 
 on:
   push:
@@ -8,18 +8,18 @@ on:
 
 jobs:
 
-  test:
-    name: Test
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Set up Go 1.x
-      users: actions/setup-go@v2
-      with:
-        go-version: ^1.13
-      id: go
+      - uses: actions/checkout@v2
 
-    - name: Check out code into the Go module directory
-      users: actions/checkout@v2
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
 
-    - name: Test
-      run: make test
+      - name: Build
+        run: go build -v ./...
+
+      - name: Test
+        run: make test
